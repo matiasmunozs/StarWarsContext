@@ -6,32 +6,58 @@ const Favorites = () => {
     const { store, actions } = useContext(Context)
 
     return (
+        // <>
+        //     <h1>Favorites</h1>
+
+        //       {store.favorites.map((favorites, id) => {
+
+        //         return (
+
+        //             <div key={id} className="card" style={{ width: '18rem' }}>
+        //                 <div className="card-body">
+        //                     <h5 className="card-title">Name: {favorites}</h5>
+        //                     <button onClick={() => actions.deleteFavorite(id)}>
+        // 							{" "}
+        // 							X {" "}
+        // 						</button>
+
+
+        //                 </div>
+        //             </div>
+
+        //         )
+        //     }
+        //     )}
+
+
+
         <>
             <h1>Favorites</h1>
 
-              {store.favorites.map((favorites, id) => {
+            <div class="container">
+                <div class="row">
+                    {store.favorites.map((favorites, id) => {
 
-                return (
+                        return (
+                            <div key={id} className="card" style={{ width: '40rem' }}>
+                                <div class="col-12">
+                                    <div className="card-body">
+                                        <h5 className="card-title">Name: {favorites}</h5>
+                                        <button onClick={() => actions.deleteFavorite(id)}>
+                                            {" "}
+                                            X {" "}
+                                        </button>
 
-                    <div key={id} className="card" style={{ width: '18rem' }}>
-                        <div className="card-body">
-                            <h5 className="card-title">Name: {favorites}</h5>
-                            <button onClick={() => actions.deleteFavorite(id)}>
-									{" "}
-									X {" "}
-								</button>
-                            {/* <h6 className="card-subtitle mb-2 text-muted">Hair Color: {people.hair_color}</h6>
-            <p className="card-text">Eye Color: {people.eye_color}</p>
-            <button href="#" className="btn btn-primary"  onClick={() => actions.addFavorite(people.name)} >Add to Favorites</button> */}
+                                    </div>
+                                </div>
+                            </div>
+                        )
 
-                        </div>
-                    </div>
-
-                )
-            }
-            )}
+                    })}
 
 
+                </div>
+            </div>
 
 
 
