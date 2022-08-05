@@ -16,6 +16,9 @@ import Planets from "./views/Planets"
 import Vehicles from "./views/Vehicles"
 import NotFound from "./views/NotFound";
 import Favorites from "./views/Favorites";
+import PlanetDetail from "./views/Planetdetail";
+import PeopleDetail from "./views/PeopleDetail";
+import VehicleDetail from "./views/VehicleDetail";
 
 //create your first component
 const Layout = () => {
@@ -38,6 +41,13 @@ const Layout = () => {
 						<Route exact path="/vehicles" component={Vehicles} />
 
 						<Route exact path="/favorites" component={Favorites} />
+
+						<Route exact path="/planets/:id" component={PlanetDetail} />
+
+						<Route exact path="/people/:id" component={PeopleDetail} />
+
+						<Route exact path="/vehicles/:id" component={VehicleDetail} />
+
 
 						<Route component={NotFound} />
 

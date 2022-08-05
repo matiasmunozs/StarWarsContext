@@ -7,7 +7,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			people: [],
 			vehicle: [],
 			planets: [],
-			favorites: []
+			favorites: [],
+			person: null,
+            planet: null,
+            vehicle: null,
 
 			
 		},
@@ -42,12 +45,38 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  .catch(err => console.error(err))
 			  },
 
+			  fetchPlanetDetail: url => {
+                fetch(url)
+                .then(response => response.json())
+                .then(data =>
+                    setStore({ planet: data}))
+                .catch((error) => console.log(error));
+            },
+
+			fetchPersonDetail: url => {
+                fetch(url)
+                .then(response => response.json())
+                .then(data =>
+                    setStore({ person: data}))
+                .catch((error) => console.log(error));
+            },
+
+			fetchVehicleDetail: url => {
+                fetch(url)
+                .then(response => response.json())
+                .then(data =>
+                    setStore({ vehicle: data}))
+                .catch((error) => console.log(error));
+            },
+
 
 			  addFavorite: item  => {
+                const {favorites} = getStore();
+                if(favorites.find((fav) => fav === item)){
+                    console.log('Found')
+                }else{
 				const newStore = getStore()
-                setStore({ favorites: [...newStore.favorites, item] })
-				
-                
+                setStore({ favorites: [...newStore.favorites, item] })}			             
 			},
 		
 			deleteFavorite: index => {
@@ -56,11 +85,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ favorites: newFavorites });
 			},
 
-
-
-			
-
-
+		
 		}
 	};
 };

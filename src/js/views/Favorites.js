@@ -10,13 +10,13 @@ const Favorites = () => {
         <>
             <h1>Favorites</h1>
 
-            <div class="container">
-                <div class="row">
+            <div className="container">
+                <div className="row">
                     {store.favorites.map((favorites, id) => {
 
                         return (
                             <div key={id} className="card" style={{ width: '40rem' }}>
-                                <div class="col-12">
+                                <div className="col-12">
                                     <div className="card-body">
                                         <h5 className="card-title">Name: {favorites}</h5>
                                         <button onClick={() => actions.deleteFavorite(id)}>
